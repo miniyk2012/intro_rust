@@ -62,6 +62,8 @@ pub fn entryDemo() {
     // insert a key only if it doesn't already exist
     player_stats.entry("health").or_insert(100);
 
+    println!("{}", player_stats["health"]);
+
     // insert a key using a function that provides a new value only if it
     // doesn't already exist
     player_stats
