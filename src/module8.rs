@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn foo(s: &String) {
     println!("{}", s)
 }
@@ -79,6 +81,7 @@ fn demo5() {
     println!("{:?}", user);
 }
 
+fn demo6() {}
 pub fn main() {
     demo1();
     demo2();

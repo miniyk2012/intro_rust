@@ -1,4 +1,42 @@
 #[derive(Debug)]
+struct User1 {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: i32,
+}
+
+fn demo0() {
+    println!("demo0");
+    let mut user1 = User1 {
+        active: true,
+        username: String::from("someusername123"),
+        email: String::from("someone@example.com"),
+        sign_in_count: 1,
+    };
+    user1.email = String::from("anotheremail@example.com");
+    println!("{:?}", user1);
+
+    let active = true;
+    let username = String::from("someusername123");
+    let email = String::from("someone@example.com");
+    let user2 = User1 {
+        active,
+        username,
+        email,
+        sign_in_count: 3,
+    };
+    println!("{:?}", user2);
+
+    let user3 = User1 {
+        sign_in_count: 30,
+        email: String::from("yangkai@example.com"),
+        ..user1
+    };
+    println!("{:?}", user3);
+}
+
+#[derive(Debug)]
 struct ArticleModule;
 fn demo1() {
     println!("\ndemo1 单元结构体");
@@ -255,6 +293,7 @@ fn demo11() {
 }
 
 pub fn main() {
+    demo0();
     demo1();
     demo2();
     demo3();
