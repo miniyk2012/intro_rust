@@ -38,6 +38,7 @@ pub fn insertDemo() {
             None => println!("{book} is unreviewed."),
         }
     }
+    println!("to_find: {:?}", to_find);
     // Look up the value for a key (will panic if the key is not found).
     println!("Review for Jane: {}", book_reviews["Pride and Prejudice"]);
     println!();
@@ -62,21 +63,65 @@ pub fn entryDemo() {
     // insert a key only if it doesn't already exist
     player_stats.entry("health").or_insert(100);
 
-    println!("{}", player_stats["health"]);
+    println!("health={}", player_stats["health"]);
 
     // insert a key using a function that provides a new value only if it
     // doesn't already exist
     player_stats
         .entry("defence")
         .or_insert_with(random_stat_buff);
+    println!("defence={}", player_stats["defence"]);
 
     // update a key, guarding against the key possibly not being set
     let stat = player_stats.entry("attack").or_insert(100);
     *stat += random_stat_buff();
+    println!("attack={}", player_stats["attack"]);
 
     // modify an entry before an insert with in-place mutation
     player_stats
         .entry("mana")
         .and_modify(|mana| *mana += 200)
         .or_insert(100);
+    println!("mana={}", player_stats["mana"]);
+
+    println!("player_stats={:?}", player_stats);
+}
+
+pub fn getDemo() {
+    println!("\ngetDemo");
+
+    let mut map = HashMap::new();
+    map.insert(1, "a");
+    assert_eq!(map.get(&1), Some(&"a"));
+    assert_eq!(map.get(&2), None);
+}
+
+pub fn mutGetDemo() {
+    println!("\nmutGetDemo");
+    let mut map = HashMap::new();
+    map.insert(1, "a");
+    if let Some(x) = map.get_mut(&1) {
+        *x = "b";
+    }
+    assert_eq!(map[&1], "b");
+}
+
+pub fn iterDemo() {
+    println!("\niterDemo");
+    let map = HashMap::from([("a", 1), ("b", 2), ("c", 3)]);
+
+    for (key, val) in map.iter() {
+        println!("key: {key} val: {val}");
+    }
+}
+
+pub fn iterMutDemo() {
+    println!("\niterMutDemo");
+    let mut map = HashMap::from([("a", 1), ("b", 2), ("c", 3)]);
+    for (key, value) in map.iter_mut() {
+        *value *= 2
+    }
+    for (key, val) in &map {
+        println!("key: {key} val: {val}");
+    }
 }

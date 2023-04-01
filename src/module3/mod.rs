@@ -210,7 +210,7 @@ fn demo7() {
 
 // Copy是指长度固定的类型
 fn largest<T: std::cmp::PartialOrd>(list: &Vec<T>) -> &T {
-    let mut largest = &list[0];
+    let mut largest = &list[0]; // 先取[], 再取&
 
     for item in list {
         if item > largest {
