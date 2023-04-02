@@ -3,14 +3,18 @@
 // mod module3;
 // mod module6;
 // mod module8;
-mod week2;
+// mod week2;
+mod week3;
+mod week4;
 fn main() {
     // module1demo();
     // module2demo();
     // module3demo();
     // module6demo();
     // module8demo();
-    week2demo();
+    // week2demo();
+    // week3demo();
+    week4demo();
 }
 
 fn module2demo() {
@@ -30,5 +34,13 @@ fn module8demo() {
 }
 
 fn week2demo() {
-    week2::main();
+    // week2::main();
+}
+
+fn week3demo() {
+    week3::main();
+}
+
+fn week4demo() {
+    week4::main();
 }
