@@ -11,14 +11,17 @@ pub fn closure_example() {
     let n = example_closure("d".to_string());
     println!("s={}, n={}", s, n);
 }
+#[derive(Debug)]
+struct B;
 use std::thread;
 pub fn example2() {
     println!("\nexample2");
     let data = vec![1, 2, 3];
     // let a = 10;
-
-    let handle = thread::spawn(|| {
+    let _b = B;
+    let handle = thread::spawn(move || {
         println!("data={:?}", data);
+        // println!("{:?}", b);
         // println!("a={:?}", a);
         for item in data {
             println!("{}", item);

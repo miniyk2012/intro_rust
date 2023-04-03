@@ -13,8 +13,8 @@ fn main() {
     // module6demo();
     // module8demo();
     // week2demo();
-    // week3demo();
-    week4demo();
+    week3demo();
+    // week4demo();
 }
 
 fn module2demo() {
